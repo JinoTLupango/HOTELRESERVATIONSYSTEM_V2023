@@ -4,6 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+      <Diagram DiagramId="3f924d30af154024afbd87d4bcb5582d" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelReservationDBModel.tblRole" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelReservationDBModel.tblRoom" Width="1.5" PointX="5.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelReservationDBModel.tblRoomBooked" Width="1.5" PointX="9" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelReservationDBModel.tblUser" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="HotelReservationDBModel.FK__tblUsers__role_i__21B6055D" />
+        <AssociationConnector Association="HotelReservationDBModel.FK__tblRoomBo__room___22AA2996" />
+        <AssociationConnector Association="HotelReservationDBModel.FK__tblRoomBo__appro__24927208" />
+        <AssociationConnector Association="HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

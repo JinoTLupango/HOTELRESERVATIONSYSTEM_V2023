@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelReservationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelReservationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblRole">
           <Key>
             <PropertyRef Name="id" />
@@ -55,21 +55,84 @@
           <Property Name="username" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="nvarchar" MaxLength="150" />
           <Property Name="name" Type="nvarchar" MaxLength="50" />
-          <Property Name="role_id" Type="int" />
           <Property Name="status" Type="nvarchar" MaxLength="50" />
           <Property Name="is_active" Type="bit" />
           <Property Name="is_deleted" Type="bit" />
           <Property Name="tdt" Type="datetime" />
           <Property Name="udt" Type="datetime" />
+          <Property Name="role_id" Type="int" />
         </EntityType>
+        <Association Name="FK__tblRoomBo__appro__24927208">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblRoomBooked" Type="Self.tblRoomBooked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblRoomBooked">
+              <PropertyRef Name="approved_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoomBo__room___22AA2996">
+          <End Role="tblRoom" Type="Self.tblRoom" Multiplicity="0..1" />
+          <End Role="tblRoomBooked" Type="Self.tblRoomBooked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoom">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblRoomBooked">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoomBo__user___239E4DCF">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblRoomBooked" Type="Self.tblRoomBooked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblRoomBooked">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUsers__role_i__21B6055D">
+          <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblUsers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HotelReservationDBModelStoreContainer">
           <EntitySet Name="tblRole" EntityType="Self.tblRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRoom" EntityType="Self.tblRoom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRoomBooked" EntityType="Self.tblRoomBooked" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblRoomBo__appro__24927208" Association="Self.FK__tblRoomBo__appro__24927208">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblRoomBooked" EntitySet="tblRoomBooked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoomBo__room___22AA2996" Association="Self.FK__tblRoomBo__room___22AA2996">
+            <End Role="tblRoom" EntitySet="tblRoom" />
+            <End Role="tblRoomBooked" EntitySet="tblRoomBooked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoomBo__user___239E4DCF" Association="Self.FK__tblRoomBo__user___239E4DCF">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblRoomBooked" EntitySet="tblRoomBooked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUsers__role_i__21B6055D" Association="Self.FK__tblUsers__role_i__21B6055D">
+            <End Role="tblRole" EntitySet="tblRole" />
+            <End Role="tblUsers" EntitySet="tblUsers" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelReservationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -79,6 +142,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUsers" Relationship="HotelReservationDBModel.FK__tblUsers__role_i__21B6055D" FromRole="tblRole" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblRoom">
           <Key>
@@ -90,9 +154,10 @@
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="is_active" Type="Boolean" />
           <Property Name="is_delete" Type="Boolean" />
-          <Property Name="tdt" Type="DateTime" />
-          <Property Name="udt" Type="DateTime" />
-          <Property Name="ddt" Type="DateTime" />
+          <Property Name="tdt" Type="DateTime" Precision="3" />
+          <Property Name="udt" Type="DateTime" Precision="3" />
+          <Property Name="ddt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblRoomBookeds" Relationship="HotelReservationDBModel.FK__tblRoomBo__room___22AA2996" FromRole="tblRoom" ToRole="tblRoomBooked" />
         </EntityType>
         <EntityType Name="tblRoomBooked">
           <Key>
@@ -101,19 +166,22 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" />
           <Property Name="room_id" Type="Int32" />
-          <Property Name="check_in_date" Type="DateTime" />
-          <Property Name="check_out_date" Type="DateTime" />
-          <Property Name="check_in_time" Type="Time" />
-          <Property Name="Check_out_time" Type="Time" />
+          <Property Name="check_in_date" Type="DateTime" Precision="0" />
+          <Property Name="check_out_date" Type="DateTime" Precision="0" />
+          <Property Name="check_in_time" Type="Time" Precision="7" />
+          <Property Name="Check_out_time" Type="Time" Precision="7" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="is_active" Type="Boolean" />
           <Property Name="is_delete" Type="Boolean" />
           <Property Name="is_booked" Type="Boolean" />
-          <Property Name="delete_datetime" Type="DateTime" />
-          <Property Name="cancel_datetime" Type="DateTime" />
+          <Property Name="delete_datetime" Type="DateTime" Precision="3" />
+          <Property Name="cancel_datetime" Type="DateTime" Precision="3" />
           <Property Name="approved_by" Type="Int32" />
-          <Property Name="approved_datetime" Type="DateTime" />
+          <Property Name="approved_datetime" Type="DateTime" Precision="3" />
           <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblRoom" Relationship="HotelReservationDBModel.FK__tblRoomBo__room___22AA2996" FromRole="tblRoomBooked" ToRole="tblRoom" />
+          <NavigationProperty Name="tblUser" Relationship="HotelReservationDBModel.FK__tblRoomBo__appro__24927208" FromRole="tblRoomBooked" ToRole="tblUser" />
+          <NavigationProperty Name="tblUser1" Relationship="HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF" FromRole="tblRoomBooked" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -127,15 +195,82 @@
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="is_active" Type="Boolean" />
           <Property Name="is_deleted" Type="Boolean" />
-          <Property Name="tdt" Type="DateTime" />
-          <Property Name="udt" Type="DateTime" />
+          <Property Name="tdt" Type="DateTime" Precision="3" />
+          <Property Name="udt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblRole" Relationship="HotelReservationDBModel.FK__tblUsers__role_i__21B6055D" FromRole="tblUser" ToRole="tblRole" />
+          <NavigationProperty Name="tblRoomBookeds" Relationship="HotelReservationDBModel.FK__tblRoomBo__appro__24927208" FromRole="tblUser" ToRole="tblRoomBooked" />
+          <NavigationProperty Name="tblRoomBookeds1" Relationship="HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF" FromRole="tblUser" ToRole="tblRoomBooked" />
         </EntityType>
         <EntityContainer Name="HotelReservationDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblRoles" EntityType="Self.tblRole" />
           <EntitySet Name="tblRooms" EntityType="Self.tblRoom" />
           <EntitySet Name="tblRoomBookeds" EntityType="Self.tblRoomBooked" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <AssociationSet Name="FK__tblUsers__role_i__21B6055D" Association="HotelReservationDBModel.FK__tblUsers__role_i__21B6055D">
+            <End Role="tblRole" EntitySet="tblRoles" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoomBo__room___22AA2996" Association="HotelReservationDBModel.FK__tblRoomBo__room___22AA2996">
+            <End Role="tblRoom" EntitySet="tblRooms" />
+            <End Role="tblRoomBooked" EntitySet="tblRoomBookeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoomBo__appro__24927208" Association="HotelReservationDBModel.FK__tblRoomBo__appro__24927208">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblRoomBooked" EntitySet="tblRoomBookeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoomBo__user___239E4DCF" Association="HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblRoomBooked" EntitySet="tblRoomBookeds" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__tblUsers__role_i__21B6055D">
+          <End Type="HotelReservationDBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
+          <End Type="HotelReservationDBModel.tblUser" Role="tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoomBo__room___22AA2996">
+          <End Type="HotelReservationDBModel.tblRoom" Role="tblRoom" Multiplicity="0..1" />
+          <End Type="HotelReservationDBModel.tblRoomBooked" Role="tblRoomBooked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoom">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblRoomBooked">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoomBo__appro__24927208">
+          <End Type="HotelReservationDBModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+          <End Type="HotelReservationDBModel.tblRoomBooked" Role="tblRoomBooked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblRoomBooked">
+              <PropertyRef Name="approved_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoomBo__user___239E4DCF">
+          <End Type="HotelReservationDBModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+          <End Type="HotelReservationDBModel.tblRoomBooked" Role="tblRoomBooked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblRoomBooked">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

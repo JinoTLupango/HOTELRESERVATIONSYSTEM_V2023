@@ -17,6 +17,15 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("HotelReservationDBModel", "FK__tblUsers__role_i__21B6055D", "tblRole", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HOTELRESERVATIONSYSTEM.AppData.tblRole), "tblUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HOTELRESERVATIONSYSTEM.AppData.tblUser), true)]
+[assembly: EdmRelationshipAttribute("HotelReservationDBModel", "FK__tblRoomBo__room___22AA2996", "tblRoom", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HOTELRESERVATIONSYSTEM.AppData.tblRoom), "tblRoomBooked", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HOTELRESERVATIONSYSTEM.AppData.tblRoomBooked), true)]
+[assembly: EdmRelationshipAttribute("HotelReservationDBModel", "FK__tblRoomBo__appro__24927208", "tblUser", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HOTELRESERVATIONSYSTEM.AppData.tblUser), "tblRoomBooked", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HOTELRESERVATIONSYSTEM.AppData.tblRoomBooked), true)]
+[assembly: EdmRelationshipAttribute("HotelReservationDBModel", "FK__tblRoomBo__user___239E4DCF", "tblUser", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HOTELRESERVATIONSYSTEM.AppData.tblUser), "tblRoomBooked", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HOTELRESERVATIONSYSTEM.AppData.tblRoomBooked), true)]
+
+#endregion
+
 namespace HOTELRESERVATIONSYSTEM.AppData
 {
     #region Contexts
@@ -248,6 +257,32 @@ namespace HOTELRESERVATIONSYSTEM.AppData
         private global::System.String _name;
         partial void OnnameChanging(global::System.String value);
         partial void OnnameChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblUsers__role_i__21B6055D", "tblUser")]
+        public EntityCollection<tblUser> tblUsers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblUser>("HotelReservationDBModel.FK__tblUsers__role_i__21B6055D", "tblUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblUser>("HotelReservationDBModel.FK__tblUsers__role_i__21B6055D", "tblUser", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -496,6 +531,32 @@ namespace HOTELRESERVATIONSYSTEM.AppData
         private Nullable<global::System.DateTime> _ddt;
         partial void OnddtChanging(Nullable<global::System.DateTime> value);
         partial void OnddtChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblRoomBo__room___22AA2996", "tblRoomBooked")]
+        public EntityCollection<tblRoomBooked> tblRoomBookeds
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblRoomBooked>("HotelReservationDBModel.FK__tblRoomBo__room___22AA2996", "tblRoomBooked");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblRoomBooked>("HotelReservationDBModel.FK__tblRoomBo__room___22AA2996", "tblRoomBooked", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -915,6 +976,124 @@ namespace HOTELRESERVATIONSYSTEM.AppData
 
         #endregion
 
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblRoomBo__room___22AA2996", "tblRoom")]
+        public tblRoom tblRoom
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblRoom>("HotelReservationDBModel.FK__tblRoomBo__room___22AA2996", "tblRoom").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblRoom>("HotelReservationDBModel.FK__tblRoomBo__room___22AA2996", "tblRoom").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblRoom> tblRoomReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblRoom>("HotelReservationDBModel.FK__tblRoomBo__room___22AA2996", "tblRoom");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblRoom>("HotelReservationDBModel.FK__tblRoomBo__room___22AA2996", "tblRoom", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblRoomBo__appro__24927208", "tblUser")]
+        public tblUser tblUser
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__appro__24927208", "tblUser").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__appro__24927208", "tblUser").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblUser> tblUserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__appro__24927208", "tblUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__appro__24927208", "tblUser", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblRoomBo__user___239E4DCF", "tblUser")]
+        public tblUser tblUser1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF", "tblUser").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF", "tblUser").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblUser> tblUser1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF", "tblUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblUser>("HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF", "tblUser", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -1184,6 +1363,92 @@ namespace HOTELRESERVATIONSYSTEM.AppData
         private Nullable<global::System.DateTime> _udt;
         partial void OnudtChanging(Nullable<global::System.DateTime> value);
         partial void OnudtChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblUsers__role_i__21B6055D", "tblRole")]
+        public tblRole tblRole
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblRole>("HotelReservationDBModel.FK__tblUsers__role_i__21B6055D", "tblRole").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblRole>("HotelReservationDBModel.FK__tblUsers__role_i__21B6055D", "tblRole").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tblRole> tblRoleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tblRole>("HotelReservationDBModel.FK__tblUsers__role_i__21B6055D", "tblRole");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tblRole>("HotelReservationDBModel.FK__tblUsers__role_i__21B6055D", "tblRole", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblRoomBo__appro__24927208", "tblRoomBooked")]
+        public EntityCollection<tblRoomBooked> tblRoomBookeds
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblRoomBooked>("HotelReservationDBModel.FK__tblRoomBo__appro__24927208", "tblRoomBooked");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblRoomBooked>("HotelReservationDBModel.FK__tblRoomBo__appro__24927208", "tblRoomBooked", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HotelReservationDBModel", "FK__tblRoomBo__user___239E4DCF", "tblRoomBooked")]
+        public EntityCollection<tblRoomBooked> tblRoomBookeds1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tblRoomBooked>("HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF", "tblRoomBooked");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tblRoomBooked>("HotelReservationDBModel.FK__tblRoomBo__user___239E4DCF", "tblRoomBooked", value);
+                }
+            }
+        }
 
         #endregion
 
