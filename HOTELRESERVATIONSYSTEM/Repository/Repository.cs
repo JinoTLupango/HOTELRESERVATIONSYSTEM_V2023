@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace HOTELRESERVATIONSYSTEM
 {
-    public class Repository
+    public class RepositoryClass
     {
         private HotelReservationDBEntities db;
-        public Repository()
+        public RepositoryClass()
         {
             db = new HotelReservationDBEntities();
         }

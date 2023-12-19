@@ -64,6 +64,36 @@
     <Compile Include="Book.Designer.cs">
       <DependentUpon>Book.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\admin\ListOfRequestReserveRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\admin\ListOfRequestReserveRoom.Designer.cs">
+      <DependentUpon>ListOfRequestReserveRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Guest\MyReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Guest\MyReservation.Designer.cs">
+      <DependentUpon>MyReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Guest\GuestCheckAvailableRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Guest\GuestCheckAvailableRoom.Designer.cs">
+      <DependentUpon>GuestCheckAvailableRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Guest\GuestDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Guest\GuestDashboard.Designer.cs">
+      <DependentUpon>GuestDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Guest\RequestReserveRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Guest\RequestReserveRoom.Designer.cs">
+      <DependentUpon>RequestReserveRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +102,12 @@
     </Compile>
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Model\userLogged.cs" />
+    <Compile Include="Repository\Room.cs" />
     <Compile Include="Util\Constant.cs" />
-    <Compile Include="Forms\Admin.cs">
+    <Compile Include="Forms\admin\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin.Designer.cs">
+    <Compile Include="Forms\admin\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form1.cs">
@@ -85,10 +116,10 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Guest.cs">
+    <Compile Include="Forms\Guest\Guest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Guest.Designer.cs">
+    <Compile Include="Forms\Guest\Guest.Designer.cs">
       <DependentUpon>Guest.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -108,14 +139,29 @@
     <EmbeddedResource Include="Book.resx">
       <DependentUpon>Book.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin.resx">
+    <EmbeddedResource Include="Forms\admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\admin\ListOfRequestReserveRoom.resx">
+      <DependentUpon>ListOfRequestReserveRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Guest.resx">
+    <EmbeddedResource Include="Forms\Guest\MyReservation.resx">
+      <DependentUpon>MyReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Guest\Guest.resx">
       <DependentUpon>Guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Guest\GuestCheckAvailableRoom.resx">
+      <DependentUpon>GuestCheckAvailableRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Guest\GuestDashboard.resx">
+      <DependentUpon>GuestDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Guest\RequestReserveRoom.resx">
+      <DependentUpon>RequestReserveRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
