@@ -39,36 +39,36 @@ namespace HOTELRESERVATIONSYSTEM
 
             if (userLogged != null)
             {
-                if (userLogged.RoomType.Equals(txtPassword.Text))
-                {
-                    switch ((Role)Int32.Parse(userLogged.roleId))
-                    {
-                        case Role.Admin:
-                            // Load student Dashboard
-                            new frm_Admin().Show();
-                            this.Hide();
-                            break;
+                //if (userLogged.RoomType.Equals(txtPassword.Text))
+                //{
+                //    switch ((Role)Int32.Parse(userLogged.roleId))
+                //    {
+                //        case Role.Admin:
+                //            // Load student Dashboard
+                //            new frm_Admin().Show();
+                //            this.Hide();
+                //            break;
 
-                        case Role.Guest:
-                            // Load Teacher Dashboard
-                            new frm_Guest().Show();
-                            this.Hide();
-                            break;
+                //        case Role.Guest:
+                //            // Load Teacher Dashboard
+                //            new frm_Guest().Show();
+                //            this.Hide();
+                //            break;
 
-                        case Role.Staff:
-                            // Load Admin Dashboard
-                            new frm_Staff().Show();
-                            this.Hide();
-                            break;
-                        default:
-                            MessageBox.Show("Log In Success");
-                            break;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect Password");
-                }
+                //        case Role.Staff:
+                //            // Load Admin Dashboard
+                //            new frm_Staff().Show();
+                //            this.Hide();
+                //            break;
+                //        default:
+                //            MessageBox.Show("Log In Success");
+                //            break;
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Incorrect Password");
+                //}
             }
             else
             {

@@ -15,11 +15,11 @@ namespace HOTELRESERVATIONSYSTEM
     public partial class frm_Register : Form
     {
       
-        HotelModelEntities db;
+        HotelReservationDBEntities db;
         public frm_Register()
         {
             InitializeComponent();
-            db = new HotelModelEntities();
+            db = new HotelReservationDBEntities();
         }
         public void loadCbBoxRole()
         {
@@ -57,15 +57,18 @@ namespace HOTELRESERVATIONSYSTEM
                 errorProvider1.SetError(txtConfirmPassword, "Password not match");
                 return;
             }
-            UserAccount nUserAccount = new UserAccount();
-            nUserAccount.GuestName = txtUsername.Text;
-            //nUserAccount.HotelCode = txtRoomNo.Text;
-            //nUserAccount.roleId = (String)cbBoxRole.SelectedValue;
-            //nUserAccount.RoomNo = "Active";
+            tblUser nUserAccount = new tblUser();
+            nUserAccount.name = txtUsername.Text;
+            nUserAccount.username = txtUsername.Text;
+            nUserAccount.password = txtUsername.Text;
+            nUserAccount.status = txtUsername.Text;
+            nUserAccount.role_id = cmBoxRole.SelectedIndex;
+            nUserAccount.is_active = true;
+            nUserAccount.is_deleted = false;
+            nUserAccount.tdt = DateTime.Now;
+            nUserAccount.udt = DateTime.Now;
 
-            //Username = txtUsername.Text;
-
-            db.UserAccounts.Add(nUserAccount);
+            db.tblUsers.AddObject(nUserAccount);
             db.SaveChanges();
 
             txtPassword.Clear();
