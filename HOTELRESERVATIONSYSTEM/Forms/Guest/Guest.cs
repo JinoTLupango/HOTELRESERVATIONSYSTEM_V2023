@@ -16,7 +16,7 @@ namespace HOTELRESERVATIONSYSTEM
     {
         HotelReservationDBEntities db;
         private DataTable dataTable;
-        Repository userRepo;
+        RepositoryClass userRepo;
         int? userSelectedId = null;
         public frm_Guest()
         {
@@ -167,7 +167,7 @@ namespace HOTELRESERVATIONSYSTEM
 
         private void frm_Guest_Load(object sender, EventArgs e)
         {
-            userRepo = new Repository();
+            userRepo = new RepositoryClass();
             loadUser();
            
         }

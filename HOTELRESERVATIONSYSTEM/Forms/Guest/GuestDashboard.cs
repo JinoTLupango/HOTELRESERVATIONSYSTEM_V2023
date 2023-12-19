@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HOTELRESERVATIONSYSTEM.Forms.Guest;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,12 @@ namespace HOTELRESERVATIONSYSTEM.Forms
         private void reserveARoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listOfAvaiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RequestReserveRoom().Show();
+            
         }
     }
 }

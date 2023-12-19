@@ -1,6 +1,6 @@
-﻿namespace HOTELRESERVATIONSYSTEM
+﻿namespace HOTELRESERVATIONSYSTEM.Forms.Guest
 {
-    partial class frm_Admin
+    partial class GuestCheckAvailableRoom
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // frm_Admin
+            // GuestCheckAvailableRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frm_Admin";
-            this.Text = "Admin";
+            this.ClientSize = new System.Drawing.Size(880, 442);
+            this.Name = "GuestCheckAvailableRoom";
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }

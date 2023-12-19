@@ -15,12 +15,13 @@ namespace HOTELRESERVATIONSYSTEM
 {
     public partial class frm_Login : Form
     {
-        Repository userRepo;
+        RepositoryClass userRepo;
+        public static tblUser UserInfo;
 
         public frm_Login()
         {
             InitializeComponent();
-            userRepo = new Repository();
+            userRepo = new RepositoryClass();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -36,15 +37,15 @@ namespace HOTELRESERVATIONSYSTEM
                 return;
             }
 
-            var userLogged = userRepo.GetUserByUsername(txtUsername.Text);
+            UserInfo = userRepo.GetUserByUsername(txtUsername.Text);
 
-            if (userLogged != null)
+            if (UserInfo != null)
             {
-                if (userLogged.password.Equals(txtPassword.Text))
+                if (UserInfo.password.Equals(txtPassword.Text))
                 {
-                    userLogged.role_id = userLogged.role_id != null ? userLogged.role_id : 0;
+                    UserInfo.role_id = UserInfo.role_id != null ? UserInfo.role_id : 0;
 
-                    switch (userLogged.role_id)
+                    switch (UserInfo.role_id)
                     {
                         case 1: //Role.Admin:
                             // Load student Dashboard

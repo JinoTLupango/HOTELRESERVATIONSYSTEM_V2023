@@ -52,6 +52,7 @@
             this.listOfAvaiToolStripMenuItem.Name = "listOfAvaiToolStripMenuItem";
             this.listOfAvaiToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
             this.listOfAvaiToolStripMenuItem.Text = "Check Available Room";
+            this.listOfAvaiToolStripMenuItem.Click += new System.EventHandler(this.listOfAvaiToolStripMenuItem_Click);
             // 
             // myReservationToolStripMenuItem
             // 
