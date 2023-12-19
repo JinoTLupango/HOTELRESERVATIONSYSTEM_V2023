@@ -59,6 +59,7 @@
             this.myReservationToolStripMenuItem.Name = "myReservationToolStripMenuItem";
             this.myReservationToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.myReservationToolStripMenuItem.Text = "My Reservation";
+            this.myReservationToolStripMenuItem.Click += new System.EventHandler(this.myReservationToolStripMenuItem_Click);
             // 
             // myProfileToolStripMenuItem
             // 

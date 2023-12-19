@@ -1,4 +1,5 @@
-﻿using HOTELRESERVATIONSYSTEM.Forms.Guest;
+﻿using HOTELRESERVATIONSYSTEM.Forms.admin;
+using HOTELRESERVATIONSYSTEM.Forms.Guest;
 using System;
 using System.Collections.Generic;
 using System.Linq;

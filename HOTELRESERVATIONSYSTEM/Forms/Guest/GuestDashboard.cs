@@ -33,5 +33,9 @@ namespace HOTELRESERVATIONSYSTEM.Forms
             new RequestReserveRoom().Show();
             
         }
+
+        private void myReservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

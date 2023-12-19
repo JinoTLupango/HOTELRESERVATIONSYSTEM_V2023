@@ -52,6 +52,7 @@
             this.cmb_floor.Name = "cmb_floor";
             this.cmb_floor.Size = new System.Drawing.Size(286, 21);
             this.cmb_floor.TabIndex = 1;
+            this.cmb_floor.SelectedIndexChanged += new System.EventHandler(this.cmb_floor_SelectedIndexChanged);
             // 
             // cmb_RoomNo
             // 
@@ -95,7 +96,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Book Now";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

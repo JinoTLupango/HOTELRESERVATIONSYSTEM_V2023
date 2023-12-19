@@ -62,6 +62,7 @@
             this.listOfRequestReserveRoomToolStripMenuItem.Name = "listOfRequestReserveRoomToolStripMenuItem";
             this.listOfRequestReserveRoomToolStripMenuItem.Size = new System.Drawing.Size(174, 20);
             this.listOfRequestReserveRoomToolStripMenuItem.Text = "List of Request Reserve Room";
+            this.listOfRequestReserveRoomToolStripMenuItem.Click += new System.EventHandler(this.listOfRequestReserveRoomToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -77,26 +78,26 @@
             // listOfGuestToolStripMenuItem
             // 
             this.listOfGuestToolStripMenuItem.Name = "listOfGuestToolStripMenuItem";
-            this.listOfGuestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listOfGuestToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.listOfGuestToolStripMenuItem.Text = "Guest";
             this.listOfGuestToolStripMenuItem.Click += new System.EventHandler(this.listOfGuestToolStripMenuItem_Click);
             // 
             // staffToolStripMenuItem
             // 
             this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
-            this.staffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.staffToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.staffToolStripMenuItem.Text = "Staff";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.allToolStripMenuItem.Text = "All";
             // 
             // frm_Admin
