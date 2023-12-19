@@ -64,6 +64,12 @@
     <Compile Include="Book.Designer.cs">
       <DependentUpon>Book.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GuestDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GuestDashboard.Designer.cs">
+      <DependentUpon>GuestDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Guest.resx">
       <DependentUpon>Guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GuestDashboard.resx">
+      <DependentUpon>GuestDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>

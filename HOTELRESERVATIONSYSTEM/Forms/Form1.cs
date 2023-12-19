@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using HOTELRESERVATIONSYSTEM.AppData;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
+using HOTELRESERVATIONSYSTEM.Forms;
 
 namespace HOTELRESERVATIONSYSTEM
 {
@@ -39,40 +40,43 @@ namespace HOTELRESERVATIONSYSTEM
 
             if (userLogged != null)
             {
-                //if (userLogged.RoomType.Equals(txtPassword.Text))
-                //{
-                //    switch ((Role)Int32.Parse(userLogged.roleId))
-                //    {
-                //        case Role.Admin:
-                //            // Load student Dashboard
-                //            new frm_Admin().Show();
-                //            this.Hide();
-                //            break;
+                if (userLogged.password.Equals(txtPassword.Text))
+                {
+                    userLogged.role_id = userLogged.role_id != null ? userLogged.role_id : 0;
 
-                //        case Role.Guest:
-                //            // Load Teacher Dashboard
-                //            new frm_Guest().Show();
-                //            this.Hide();
-                //            break;
+                    switch (userLogged.role_id)
+                    {
+                        case 1: //Role.Admin:
+                            // Load student Dashboard
+                            new frm_Admin().Show();
+                            this.Hide();
+                            break;
 
-                //        case Role.Staff:
-                //            // Load Admin Dashboard
-                //            new frm_Staff().Show();
-                //            this.Hide();
-                //            break;
-                //        default:
-                //            MessageBox.Show("Log In Success");
-                //            break;
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Incorrect Password");
-                //}
+                        case 2: // Role.Guest:
+                            // Load Teacher Dashboard
+                            new frm_Staff().Show();
+                            this.Hide();
+                            break;
+
+                        case 3: // Role.Staff:
+                            // Load Admin Dashboard
+                            //new frm_Guest().Show();
+                            new GuestDashboard().Show();
+                            this.Hide();
+                            break;
+                        default:
+                            MessageBox.Show("Log In Success");
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password");
+                }
             }
             else
             {
-                MessageBox.Show("Successfully!");
+                MessageBox.Show("User not found!");
                 //frm_Guest frm = new frm_Guest();
                 //frm.ShowDialog();
 
