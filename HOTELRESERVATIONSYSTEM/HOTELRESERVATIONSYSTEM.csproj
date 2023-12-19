@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppData\HotelReserveDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelReserveDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Book.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +136,13 @@
     <EmbeddedResource Include="Forms\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="AppData\HotelReserveDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HotelReserveDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AppData\HotelReserveDB.edmx.diagram">
+      <DependentUpon>HotelReserveDB.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -145,9 +157,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppData\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Screenshot_1.png" />
   </ItemGroup>
