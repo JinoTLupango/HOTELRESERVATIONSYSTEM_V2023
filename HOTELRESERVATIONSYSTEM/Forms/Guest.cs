@@ -14,7 +14,7 @@ namespace HOTELRESERVATIONSYSTEM
 {
     public partial class frm_Guest : Form
     {
-        HotelModelEntities db;
+        HotelReservationDBEntities db;
         private DataTable dataTable;
         Repository userRepo;
         int? userSelectedId = null;
@@ -82,37 +82,37 @@ namespace HOTELRESERVATIONSYSTEM
                 return;
             }
 
-            UserAccount newUserAcc = new UserAccount();
-            newUserAcc.GuestName = txtGuestName.Text;
-            newUserAcc.RoomNo = (Convert.ToInt32(txtRoomNumber.Text));
-           //newUserAcc.roleId = cmBoxRole.SelectedIndex;
-            newUserAcc.RoomType = txtRoomType.Text;
-            newUserAcc.CheckIn = dateTimePicker1.Text;
-            newUserAcc.CheckOut = dateTimePicker2.Text;
+           // tblUser newUserAcc = new tblUser();
+           // newUserAcc.GuestName = txtGuestName.Text;
+           // newUserAcc.RoomNo = (Convert.ToInt32(txtRoomNumber.Text));
+           ////newUserAcc.roleId = cmBoxRole.SelectedIndex;
+           // newUserAcc.RoomType = txtRoomType.Text;
+           // newUserAcc.CheckIn = dateTimePicker1.Text;
+           // newUserAcc.CheckOut = dateTimePicker2.Text;
 
             //db.UserAccounts.Add(newUserAcc);
             //db.SaveChanges();
-            ErrorCode retValue = userRepo.NewUser(newUserAcc, ref strOutputMsg);
-            if (retValue == ErrorCode.Success)
-            {
-                //Clear the errors
-                errorProvider1.Clear();
-                MessageBox.Show(strOutputMsg, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadUser();
+            //ErrorCode retValue = userRepo.NewUser(newUserAcc, ref strOutputMsg);
+            //if (retValue == ErrorCode.Success)
+            //{
+            //    //Clear the errors
+            //    errorProvider1.Clear();
+            //    MessageBox.Show(strOutputMsg, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    loadUser();
 
-                txtGuestName.Clear();
-                txtRoomNumber.Clear();
-                txtRoomType.Clear();
-               // dateTimePicker1.Clear();
-                //dateTimePicker2.Clear();
-                //RoleComboBox.ResetText();
+            //    txtGuestName.Clear();
+            //    txtRoomNumber.Clear();
+            //    txtRoomType.Clear();
+            //   // dateTimePicker1.Clear();
+            //    //dateTimePicker2.Clear();
+            //    //RoleComboBox.ResetText();
 
-            }
-            else
-            {
-                // error 
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            //}
+            //else
+            //{
+            //    // error 
+            //    MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
         }
 
 
@@ -173,9 +173,9 @@ namespace HOTELRESERVATIONSYSTEM
         }
         private void loadCbRole()
         {
-            using (var db = new HotelModelEntities ())
+            using (var db = new HotelReservationDBEntities ())
             {
-                var roles = db.Roles.ToList();
+                var roles = db.tblRoles.ToList();
 
                 //cmBoxRole.ValueMember = "roleId";
                 //cmBoxRole.DisplayMember = "roleName";

@@ -15,7 +15,7 @@ namespace HOTELRESERVATIONSYSTEM
 
 
         // *********** Member 
-        public UserAccount UserAccount { get; set; }
+        public tblRole UserAccount { get; set; }
 
 
         //************

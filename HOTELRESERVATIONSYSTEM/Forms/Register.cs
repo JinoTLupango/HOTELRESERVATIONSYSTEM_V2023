@@ -15,17 +15,16 @@ namespace HOTELRESERVATIONSYSTEM
     public partial class frm_Register : Form
     {
       
-        HotelModelEntities db;
+        HotelReservationDBEntities db;
         public frm_Register()
         {
             InitializeComponent();
-            db = new HotelModelEntities();
+            db = new HotelReservationDBEntities();
         }
         public void loadCbBoxRole()
         {
             // SELECT * FROM ROLE
             //var roles = db.Roles.ToList();
-
             cmBoxRole.ValueMember = "roleId";
             cmBoxRole.DisplayMember = "roleName";
             cmBoxRole.DataSource = Enum.GetValues(typeof(Role));
@@ -33,39 +32,45 @@ namespace HOTELRESERVATIONSYSTEM
         }
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            if(cmBoxRole.SelectedItem.ToString().ToUpper() == "SELECT" || String.IsNullOrEmpty(cmBoxRole.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Please select role!");
+                return;
+            }
             if (String.IsNullOrEmpty(txtUsername.Text))
             {
                 errorProvider1.SetError(txtUsername, "Empty field");
                 return;
-            }
-            if (String.IsNullOrEmpty(txtPassword.Text))
+            }else if (String.IsNullOrEmpty(txtPassword.Text))
             {
                 errorProvider1.Clear();
                 errorProvider1.SetError(txtPassword, "Empty field");
                 return;
             }
-            if (String.IsNullOrEmpty(txtConfirmPassword.Text))
+            else if (String.IsNullOrEmpty(txtConfirmPassword.Text))
             {
                 errorProvider1.Clear();
                 errorProvider1.SetError(txtPassword, "Empty field");
                 return;
             }
-
-            if (!txtPassword.Text.Equals(txtConfirmPassword.Text))
+            else if (!txtPassword.Text.Equals(txtConfirmPassword.Text))
             {
                 errorProvider1.Clear();
                 errorProvider1.SetError(txtConfirmPassword, "Password not match");
                 return;
             }
-            UserAccount nUserAccount = new UserAccount();
-            nUserAccount.GuestName = txtUsername.Text;
-            //nUserAccount.HotelCode = txtRoomNo.Text;
-            //nUserAccount.roleId = (String)cbBoxRole.SelectedValue;
-            //nUserAccount.RoomNo = "Active";
+            tblUser nUserAccount = new tblUser();
+            nUserAccount.name = txtUsername.Text;
+            nUserAccount.username = txtUsername.Text;
+            nUserAccount.password = txtPassword.Text;
+            nUserAccount.status = txtUsername.Text;
+            nUserAccount.role_id = cmBoxRole.SelectedIndex;
+            nUserAccount.is_active = true;
+            nUserAccount.is_deleted = false;
+            nUserAccount.tdt = DateTime.Now;
+            nUserAccount.udt = DateTime.Now;
 
-            //Username = txtUsername.Text;
-
-            db.UserAccounts.Add(nUserAccount);
+            db.tblUsers.AddObject(nUserAccount);
             db.SaveChanges();
 
             txtPassword.Clear();
@@ -73,6 +78,7 @@ namespace HOTELRESERVATIONSYSTEM
             txtUsername.Clear();
             MessageBox.Show("Registered!");
 
+            this.Hide();
             frm_Login frm = new frm_Login();
             frm.ShowDialog();
 
