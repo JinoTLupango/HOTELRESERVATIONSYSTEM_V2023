@@ -82,6 +82,7 @@ namespace HOTELRESERVATIONSYSTEM
 
         private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             frm_Register frm = new frm_Register();
             frm.ShowDialog();
 

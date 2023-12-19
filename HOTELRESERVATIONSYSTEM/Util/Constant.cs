@@ -14,9 +14,10 @@ namespace HOTELRESERVATIONSYSTEM
 
     public enum Role
     {
+        Select = 0,
         Admin = 1,
-        Guest = 2,
-        Staff = 3,
+        Staff = 2,
+        Guest = 3,
 
     }
 
