@@ -18,7 +18,8 @@ namespace HOTELRESERVATIONSYSTEM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GuestCalendarView());
+            Application.Run(new frm_Login());
+           
             //Application.Run(new RequestReserveRoom());
         }
     }

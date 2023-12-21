@@ -1,4 +1,5 @@
 ﻿using HOTELRESERVATIONSYSTEM.Forms.admin;
+using HOTELRESERVATIONSYSTEM.Forms.Guest;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,19 @@ namespace HOTELRESERVATIONSYSTEM
         private void listOfRequestReserveRoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ListOfRequestReserveRoom().Show();
+        }
+
+        private void calendarViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GuestCalendarView frm = new GuestCalendarView();
+            frm.ShowDialog();
+            //GuestCalendarView
+        }
+
+        private void frm_Admin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

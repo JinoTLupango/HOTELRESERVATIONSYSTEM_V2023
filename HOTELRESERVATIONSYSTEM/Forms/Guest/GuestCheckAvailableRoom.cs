@@ -16,5 +16,10 @@ namespace HOTELRESERVATIONSYSTEM.Forms.Guest
         {
             InitializeComponent();
         }
+
+        private void GuestCheckAvailableRoom_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

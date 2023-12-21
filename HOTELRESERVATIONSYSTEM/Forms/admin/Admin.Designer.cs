@@ -56,6 +56,7 @@
             this.calendarViewToolStripMenuItem.Name = "calendarViewToolStripMenuItem";
             this.calendarViewToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.calendarViewToolStripMenuItem.Text = "Calendar View";
+            this.calendarViewToolStripMenuItem.Click += new System.EventHandler(this.calendarViewToolStripMenuItem_Click);
             // 
             // listOfRequestReserveRoomToolStripMenuItem
             // 
@@ -109,6 +110,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frm_Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.frm_Admin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

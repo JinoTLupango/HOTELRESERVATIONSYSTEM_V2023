@@ -30,12 +30,22 @@ namespace HOTELRESERVATIONSYSTEM.Forms
 
         private void listOfAvaiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new RequestReserveRoom().Show();
-            
+            //new RequestReserveRoom().Show();
+            new GuestCalendarView().Show();
         }
 
         private void myReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void GuestDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void myProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

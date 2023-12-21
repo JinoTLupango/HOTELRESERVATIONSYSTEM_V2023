@@ -154,6 +154,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "GuestCalendarView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GuestCalendarView";
             this.Load += new System.EventHandler(this.GuestCalendarView_Load);
             this.ResumeLayout(false);
